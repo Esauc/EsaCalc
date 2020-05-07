@@ -7,15 +7,15 @@
 #txtFx
 {
   position: relative;
-  top: 70px;
-  right: 100px;
+  top: 40px;
+  left: 4px;
 }
 
 #caixaDeEntrada
 {
   position: relative;
   top: 20px;
-  right: 30px;
+  left: 30px;
 }
 
 #canvas
@@ -28,7 +28,7 @@
 #botaoPlot
 {
   position: relative;
-  right: 30px;
+  left: 30px;
   top: 20px;
 
 }

@@ -7,8 +7,6 @@
 
 #caixaDeEntrada
 {
-  resize: none;
-  height: 1em;
   position: relative;
   top: 20px;
   left: 10px;
@@ -19,4 +17,17 @@
   position: relative;
   top: 50px;
   z-index: -1;
+}
+
+@media screen and (orientation: portrait)
+{
+  #txtFuncao
+  {
+    font-size: 2em;
+  }
+
+  #caixaDeEntrada
+  {
+    font-size: 2em;
+  }
 }

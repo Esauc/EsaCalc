@@ -19,7 +19,7 @@
   z-index: -1;
 }
 
-@media screen and (orientation: portrait)
+@media screen and (orientation: portrait) 
 {
   #txtFuncao
   {
@@ -33,6 +33,24 @@
 
   body
   {
-    color: aqua;
+    background-color: gray;
+  }
+}
+
+@media screen and (max-width: 900px)
+{
+  #txtFuncao
+  {
+    font-size: 3em;
+  }
+
+  #caixaDeEntrada
+  {
+    font-size: 3em;
+  }
+
+  body
+  {
+    background-color: coral;
   }
 }

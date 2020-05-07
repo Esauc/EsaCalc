@@ -6,8 +6,13 @@ ctx.webkitImageSmoothingEnabled = false;
 ctx.mozImageSmoothingEnabled = false;
 ctx.imageSmoothingEnabled = false;
 
-ctx.canvas.width = window.innerWidth-window.innerWidth*0.02;
-ctx.canvas.height = window.innerHeight - (window.innerHeight / 3);
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if(!isMobile)
+{
+	ctx.canvas.width = window.innerWidth-window.innerWidth*0.02;
+	ctx.canvas.height = window.innerHeight - (window.innerHeight / 3);
+}
 
 function mainLoop() 
 {

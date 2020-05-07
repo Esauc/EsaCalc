@@ -1,0 +1,22 @@
+#txtFuncao
+{
+  position: relative;
+  top: 20px;
+  left: 4px;
+}
+
+#caixaDeEntrada
+{
+  resize: none;
+  height: 1em;
+  position: relative;
+  top: 20px;
+  left: 10px;
+}
+
+#canvas
+{
+  position: relative;
+  top: 50px;
+  z-index: -1;
+}

@@ -4,7 +4,7 @@ var ctx = canvas.getContext('2d');
 
 
 var width = window.innerWidth-12;
-var height = window.innerHeight - (window.innerHeight / 3);
+var height = window.innerHeight - (window.innerHeight / 2);
 
 ctx.canvas.width = width;
 ctx.canvas.height = height;

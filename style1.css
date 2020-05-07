@@ -30,4 +30,9 @@
   {
     font-size: 3em;
   }
+
+  body
+  {
+    color: aqua;
+  }
 }

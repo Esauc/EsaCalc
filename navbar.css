@@ -33,7 +33,7 @@
 } 
 
  /* When the screen is portrait, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (orientation: portrait)
+@media screen and (max-width: 1024px)
 {
   .topnav a
   {

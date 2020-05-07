@@ -8,7 +8,7 @@
   <link href="navbar.css" rel="stylesheet">
 
   <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">EsaCALC</a>
+    <a href="index.html" class="active">EsaCALC</a>
     <a href="#news">Derivada</a>
     <a href="#contact">Integral</a>
     <a href="#about">Interpolação</a>
@@ -37,11 +37,26 @@
 
   <body>
 
-    <text id="txtFuncao">f(x)=</text>
+    <text id="txtDigiteFuncao">Digite a função:</text>
+    <text id="txtFx">f(x)=</text>
 
     <input type="text" id="caixaDeEntrada" name="caixaDeEntrada">
 
+    <button type="button" id="botaoPlot" onclick="getFunction();"> Plotar </button>
+
     <canvas id="canvas" width="300" height="300"></canvas>
+    
+    <script>
+
+      function getFunction()
+      {
+        var entrada = document.getElementById("caixaDeEntrada");
+        var texto = document.getElementById("txtFx");
+        texto.textContent = "f(x) = " + entrada.value;
+      }
+
+    </script>
+
     <script src="Entity.js"></script>
     <script src="main.js"></script>
     

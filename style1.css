@@ -1,34 +1,56 @@
-#txtFuncao
+#txtDigiteFuncao
 {
   position: relative;
   top: 20px;
   left: 4px;
+}
+#txtFx
+{
+  position: relative;
+  top: 70px;
+  right: 100px;
 }
 
 #caixaDeEntrada
 {
   position: relative;
   top: 20px;
-  left: 10px;
+  right: 30px;
 }
 
 #canvas
 {
   position: relative;
-  top: 50px;
-  z-index: -1;
+  top: 80px;
+  left: 10px;
+}
+
+#botaoPlot
+{
+  position: relative;
+  right: 30px;
+  top: 20px;
+
 }
 
 @media screen and (max-width: 1024px)
 {
-  #txtFuncao
+  #txtFx
   {
-    font-size: 3em;
+    font-size: 2em;
+  }
+  #botaoPlot
+  {
+    font-size: 2em;
+  }
+  #txtDigiteFuncao
+  {
+    font-size: 2em;
   }
 
   #caixaDeEntrada
   {
-    font-size: 3em;
+    font-size: 2em;
   }
 
   body

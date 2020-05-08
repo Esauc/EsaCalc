@@ -16,7 +16,7 @@ function getInputExpression()
     else
     {
     	caixaDeEntrada.value = "";
-    	alert("Expressão inválida!");
+    	alert("Expressão inválida: Você informou caracteres não reconhecidos.");
     }
 }
 
@@ -50,16 +50,17 @@ function validateExpression(string)
 		for(var j = 0; j < a.length; j++)
 		{
 			//Remove todas as ocorrências
-			if(i == 1 & j == 4)
+
+			if(i == 1 & j == 4) //O caractere ^ é especial e não lança exceção se não forem utilizadas as \\
 			{
 				strTest = strTest.replace(new RegExp("\\" + a[j], "g"), '');
 				continue;
 			}
-			try
+			try //Se for um caractere normal, efetua a substituição
 			{
 				strTest = strTest.replace(new RegExp(a[j], "g"), '');
 			}
-			catch(e)
+			catch(e) //Se for um caractere especial, adiciona as \\ para não dar erro
 			{
 				strTest = strTest.replace(new RegExp("\\" + a[j], "g"), '');
 			}
@@ -69,6 +70,12 @@ function validateExpression(string)
 	//Se a string teste está vazia é porque a expressão está OK
 	if(strTest.length == 0)
 	{
+		//Adiciona operador de multiplicação aos coeficientes de X
+		for(var i = 0; i < numbers.length; i++)
+		{
+			string = string.replace(new RegExp("" + numbers[i] + "x", "g"), "" + numbers[i] + "*x");
+		}
+
 		//Adiciona Math. as funcoes
 		for(var i = 0; i < functions.length; i++)
 		{

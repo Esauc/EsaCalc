@@ -75,6 +75,8 @@ function validateExpression(string)
 		{
 			string = string.replace(new RegExp("" + numbers[i] + "x", "g"), "" + numbers[i] + "*x");
 		}
+		string = string.replace(new RegExp("xx", "g"), "x*x"); //Para coeficientes = X
+		string = string.replace(new RegExp("xx", "g"), "x*x");
 
 		//Adiciona Math. as funcoes
 		for(var i = 0; i < functions.length; i++)

@@ -92,6 +92,39 @@ canvasElem.addEventListener("mousemove", function (e)
 		draw();
 	}
 });
+canvasElem.addEventListener("touchstart", function(e)
+{
+	let rect = canvas.getBoundingClientRect();
+	let x = e.clientX - rect.left;
+	let y = e.clientY - rect.top;
+
+	mouseClickX = x;
+	mouseClickY = y;
+
+	isMouseDown = true;
+});
+canvasElem.addEventListener("touchend", function(e)
+{
+	isMouseDown = false;
+});
+canvasElem.addEventListener("touchmove", function(e)
+{
+	let rect = canvas.getBoundingClientRect();
+
+	mouseX = e.clientX - rect.left;
+	mouseY = e.clientY - rect.top;
+
+	if(isMouseDown)
+	{
+		xOffset += mouseX -mouseClickX;
+		yOffset += mouseY -mouseClickY;
+
+		mouseClickX = mouseX;
+		mouseClickY = mouseY;
+
+		draw();
+	}
+});
 
 // Start things off
 //requestAnimationFrame(mainLoop);

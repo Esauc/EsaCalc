@@ -95,8 +95,8 @@ canvasElem.addEventListener("mousemove", function (e)
 canvasElem.addEventListener("touchstart", function(e)
 {
 	let rect = canvas.getBoundingClientRect();
-	let x = e.clientX - rect.left;
-	let y = e.clientY - rect.top;
+	let x = e.touches[0].clientX - rect.left;
+	let y = e.touches[0].clientY - rect.top;
 
 	mouseClickX = x;
 	mouseClickY = y;
@@ -111,8 +111,8 @@ canvasElem.addEventListener("touchmove", function(e)
 {
 	let rect = canvas.getBoundingClientRect();
 
-	mouseX = e.clientX - rect.left;
-	mouseY = e.clientY - rect.top;
+	mouseX = e.touches[0].clientX - rect.left;
+	mouseY = e.touches[0].clientY - rect.top;
 
 	if(isMouseDown)
 	{

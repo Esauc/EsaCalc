@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,24 +41,13 @@
 
     <input type="text" id="caixaDeEntrada" name="caixaDeEntrada">
 
-    <button type="button" id="botaoPlot" onclick="getFunction();"> Plotar </button><br>
+    <button type="button" id="botaoPlot" onclick="getInputExpression();"> Plotar </button><br>
 
     <text id="txtFx">f(x)=</text>
 
     <canvas id="canvas" width="300" height="300"></canvas>
-    
-    <script>
 
-      function getFunction()
-      {
-        var entrada = document.getElementById("caixaDeEntrada");
-        var texto = document.getElementById("txtFx");
-        texto.textContent = "f(x) = " + entrada.value;
-      }
-
-    </script>
-
-    <script src="Entity.js"></script>
+    <script src="validateExpression.js"></script>
     <script src="main.js"></script>
     
   </body>

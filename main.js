@@ -25,8 +25,8 @@ function update()
 
 function draw()
 {
-	ctx.fillStyle = "#F0FFF0";
-	ctx.strokeStyle = "#008B8B";
+	ctx.fillStyle = "#F0FFF0"
+	ctx.strokeStyle = "#000000";
 	ctx.lineWidth = 5;
 	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 	ctx.strokeRect(0, 0, ctx.canvas.width, ctx.canvas.height);

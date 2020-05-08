@@ -30,7 +30,11 @@
   position: relative;
   left: 30px;
   top: 20px;
+}
 
+body
+{
+  background-color: #8FBC8F;
 }
 
 @media screen and (max-width: 1024px)
@@ -51,10 +55,5 @@
   #caixaDeEntrada
   {
     font-size: 2em;
-  }
-
-  body
-  {
-    background-color: coral;
   }
 }

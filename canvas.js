@@ -23,7 +23,6 @@ var mouseClickY = 0;
 var isMouseDown = false;
 
 var pontos = [];
-const zoom = 1;
 
 var fx = "";
 
@@ -70,6 +69,8 @@ class Point
 	}
 }
 
+const zoom = 10;
+
 function plotFunction(f)
 {
 	if(f.length == 0)
@@ -79,19 +80,21 @@ function plotFunction(f)
 
 	pontos = [];
 
-	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width*2; x++)
+	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width * 2; x ++)
 	{
 		var y = 0;
 		try
 		{
+			x /= zoom;
 			y = eval(f + ";");
+			x *= zoom;
 		}
 		catch(e)
 		{
 			console.log(e);
 			return false;
 		}
-		var p = new Point(x, y);
+		var p = new Point(x, y * zoom);
 		pontos.push(p);
 	}
 	draw();

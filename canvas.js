@@ -22,6 +22,11 @@ var mouseClickY = 0;
 
 var isMouseDown = false;
 
+var pontos = [];
+const zoom = 1;
+
+var fx = "";
+
 function draw()
 {
 	//Desenha o quadro
@@ -45,6 +50,8 @@ function draw()
 	ctx.moveTo(-xOffset, 0);
 	ctx.lineTo(-xOffset + ctx.canvas.width, 0);
 	ctx.stroke();
+
+	drawFunction();
 }
 
 function setOffset(x, y)
@@ -52,6 +59,63 @@ function setOffset(x, y)
 	ctx.translate(x - xOffsetBuffer, y - yOffsetBuffer);
 	xOffsetBuffer = x;
 	yOffsetBuffer = y;
+}
+
+class Point
+{
+	constructor(x, y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+}
+
+function plotFunction(f)
+{
+	if(f.length == 0)
+	{
+		return false;
+	}
+
+	pontos = [];
+
+	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width*2; x++)
+	{
+		var y = 0;
+		try
+		{
+			y = eval(f + ";");
+		}
+		catch(e)
+		{
+			console.log(e);
+			return false;
+		}
+		var p = new Point(x, y);
+		pontos.push(p);
+	}
+	draw();
+	drawFunction();
+
+	fx = f;
+
+	return true;
+}
+
+function drawFunction()
+{
+	if(pontos.length > 0)
+	{
+		ctx.strokeStyle = "#F51E1E";
+		ctx.beginPath();
+		ctx.moveTo(pontos[0].x, -pontos[0].y);
+
+		for(var i = 1; i < pontos.length; i++)
+		{
+			ctx.lineTo(pontos[i].x, -pontos[i].y);
+		}
+		ctx.stroke();
+	}
 }
 
 let canvasElem = document.querySelector("canvas");
@@ -73,6 +137,7 @@ canvasElem.addEventListener("mousedown", function(e)
 canvasElem.addEventListener("mouseup", function(e)
 {
 	isMouseDown = false;
+	plotFunction(fx);
 });
 canvasElem.addEventListener("mousemove", function (e)
 {

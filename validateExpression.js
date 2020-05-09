@@ -7,16 +7,24 @@ function getInputExpression()
 	var caixaDeEntrada = document.getElementById("caixaDeEntrada");
     var texto = document.getElementById("txtFx");
 
+    var exp = caixaDeEntrada.value;
     var expressao = validateExpression(caixaDeEntrada.value);
 
     if(expressao.length > 0)
     {
-    	texto.textContent = "f(x) = " + expressao;
+    	if(plotFunction(expressao))
+    	{
+    		texto.textContent = "f(x) = " + exp;
+    	}
+    	else
+    	{
+    		alert("Erro 2: Não foi possível calcular sua função.")
+    	}
     }
     else
     {
     	caixaDeEntrada.value = "";
-    	alert("Expressão inválida: Você informou caracteres não reconhecidos.");
+    	alert("Erro 1: Expressão inválida, você informou caracteres não reconhecidos.");
     }
 }
 
@@ -28,7 +36,7 @@ function validateExpression(string)
 	string = string.toLowerCase(); //Tudo para letra minuscula
 
 	numbers = ['0','1','2','3','4','5','6','7','8','9'];
-	operators = ['+','-','*','/','^','(',')'];
+	operators = ['+','-','*','/','^','(',')','.'];
 	functions = ['sin', 'cos', 'log'];
 	constants = ['PI', 'E', 'x'];
 
@@ -83,6 +91,10 @@ function validateExpression(string)
 		{
 			string = string.replace(new RegExp(functions[i], "g"), ("Math."+functions[i]));
 		}
+
+		//Troca o operador ^ por ** (exponenciação)
+		string = string.replace(new RegExp("\\^", "g"), "**");
+
 		return string;
 	}
 

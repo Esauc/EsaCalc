@@ -50,7 +50,7 @@ function draw()
 	ctx.lineTo(-xOffset + ctx.canvas.width, 0);
 	ctx.stroke();
 
-	drawFunction();
+	//drawFunction();
 }
 
 function setOffset(x, y)
@@ -98,7 +98,7 @@ function plotFunction(f)
 		pontos.push(p);
 	}
 	draw();
-	drawFunction();
+	//drawFunction();
 
 	fx = f;
 

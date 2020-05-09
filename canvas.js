@@ -50,7 +50,7 @@ function draw()
 	ctx.lineTo(-xOffset + ctx.canvas.width, 0);
 	ctx.stroke();
 
-	//drawFunction();
+	drawFunction();
 }
 
 function setOffset(x, y)
@@ -98,7 +98,7 @@ function plotFunction(f)
 		pontos.push(p);
 	}
 	draw();
-	//drawFunction();
+	drawFunction();
 
 	fx = f;
 
@@ -107,6 +107,8 @@ function plotFunction(f)
 
 function drawFunction()
 {
+	console.log(pontos);
+	
 	if(pontos.length > 0)
 	{
 		ctx.strokeStyle = "#F51E1E";

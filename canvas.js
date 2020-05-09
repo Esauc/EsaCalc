@@ -80,7 +80,7 @@ function plotFunction(f)
 
 	pontos = [];
 
-	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width * 2; x ++)
+	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width * 2; x += 7)
 	{
 		var y = 0;
 		try

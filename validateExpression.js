@@ -28,6 +28,57 @@ function getInputExpression()
     }
 }
 
+function getDerivative()
+{
+	var caixaDeEntrada = document.getElementById("caixaDeEntrada");
+    var texto = document.getElementById("txtFx");
+    var exp = caixaDeEntrada.value;
+    var expressao = validateExpression(caixaDeEntrada.value);
+
+    var caixaX = document.getElementById("caixaDeEntradaX");
+    var textoDerivada = document.getElementById("txtDerivada");
+
+    if(("" + caixaX.value).length > 0)
+    {
+    	if(expressao.length > 0)
+    	{
+	    	if(plotFunction(expressao))
+	    	{
+	    		//Definição de derivada:
+	    		// f '(x) = lim (f(x + h) -f(x)) / h  ... Para h->0
+	    		var derivada;
+
+	    		try
+	    		{
+	    			var x = caixaX.value;
+	    			x -= 1.0;
+	    			x += 1.0;
+
+	    			derivada = calculateDerivative(x);
+	    			textoDerivada.textContent = "f '(" + caixaX.value + ") = " + derivada.toFixed(4);
+	    		}
+	    		catch(e)
+	    		{
+	    			alert("Erro 4: Valor de X inválido!");
+	    		}
+	    	}
+	    	else
+	    	{
+	    		alert("Erro 2: Não foi possível calcular sua função.")
+	    	}
+    	}
+    	else
+    	{
+    		caixaDeEntrada.value = "";
+    		alert("Erro 1: Expressão inválida, você informou caracteres não reconhecidos.");
+    	}
+    }
+    else
+    {
+    	alert("Erro 3: Você precisa informar um valor para X!");
+    }
+}
+
 //Esse algoritmo valida a expressao do usuário, verifica erros ou funções que não correspondem à calculadora
 //Evita injeção de código e riscos de segurança
 function validateExpression(string)

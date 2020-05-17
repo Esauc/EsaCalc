@@ -23,6 +23,9 @@ var mouseClickY = 0;
 var isMouseDown = false;
 
 var pontos = [];
+var dPontos = [];
+
+const zoom = 10;
 
 var fx = "";
 
@@ -69,7 +72,32 @@ class Point
 	}
 }
 
-const zoom = 10;
+function calculateF(x)
+{
+	if(fx.length > 0)
+	{
+		x += 1.0;
+		x -= 1.0; //Faz X deixar de ser string e virar número.
+		return eval(fx);
+	}
+	return null;
+}
+
+function calculateDerivative(x)
+{
+	if(fx.length > 0)
+	{
+		const h = 0.000001;
+		x += 1.0;
+		x -= 1.0; //Faz X deixar de ser string e virar número.
+		var f = calculateF(x);
+	    var a = calculateF(x + h);
+	    console.log(a);
+	    derivada = (a -f) / h;
+	    return derivada;
+	}
+	return null;
+}
 
 function plotFunction(f)
 {
@@ -80,7 +108,7 @@ function plotFunction(f)
 
 	pontos = [];
 
-	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width * 2; x += 7)
+	for(var x = -xOffset -ctx.canvas.width; x < -xOffset + ctx.canvas.width * 2; x ++)
 	{
 		var y = 0;
 		try
@@ -98,16 +126,20 @@ function plotFunction(f)
 		pontos.push(p);
 	}
 	draw();
-	drawFunction();
 
 	fx = f;
 
 	return true;
 }
 
+function plotDerivative(f)
+{
+	
+}
+
 function drawFunction()
 {
-	console.log(pontos);
+	//console.log(pontos);
 	
 	if(pontos.length > 0)
 	{
